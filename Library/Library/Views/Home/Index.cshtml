@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+ 
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="~/scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/scripts/jquery.unobtrusive-ajax.min.js"></script>
+    @{
+        ViewBag.Title = "Бібліотека";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+</head>
+<body>
+    <div>
+        <h1>Бібліотека</h1>
+        <div>
+            @using (Ajax.BeginForm("BookSearch", new AjaxOptions { UpdateTargetId = "results" }))
+            {
+                <input type="text" name="name" />
+                <input type="submit" value="Пошук" />
+            }
+            <div id="results"></div>
+        </div>
+        <table class="table">
+            <tr>
+                <th>@Html.ActionLink("Назва книжки", "Index", new { sort = ViewBag.NameSort })</th>
+                <th><p>Автори</p></th>
+                <th><p>Видання</p></th>
+                <th><p>Кількість сторінок</p></th>
+            </tr>
+            @foreach (var b in ViewBag.Books)
+            {
+            <tr>
+                <th>@b.Name</th>
+                <th>
+                @foreach (var t in b.Authors)
+                {
+                <p>@t.FirstName @t.LastName</p>
+                }
+                </th>
+                <th>@b.Edition</th>
+                <th>@b.Pages</th>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>

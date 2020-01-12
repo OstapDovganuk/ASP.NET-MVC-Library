@@ -1,0 +1,46 @@
+﻿@model Library.Models.Author
+
+@{
+    ViewBag.Title = "Видалити";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Видалити</h2>
+
+<h3>Ви впевненні, що хочете видалити автора, з ним будуть видалені всі його книги?</h3>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+           Ім'я
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+           Прізвище
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+           Рік народження
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Birthday)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Видалити" class="btn btn-default" />
+        </div>
+    }
+</div>
