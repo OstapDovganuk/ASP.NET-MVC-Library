@@ -1,3 +1,2 @@
 # ASP.NET-MVC-Llibrary
-Simple ASP.NET MVC example library site.
-The main page shows a list of books in the library. You must be logg in as an administrator to edit the library, you need write in url .../Admin and then you see logg in form. Write email - "ostap@test.ua" and password - "123456" then you can edit data.
+Простий сайт бібліотеки. На головній сторінці виводяться всі книги, які є у бібліотеці, щоб додати книгу чи автора потрібно зайти як адміністратор вказавши в URL .../Admin і вказати  Email = "ostap@test.ua", Password = "123456", тоді у Вас буде можливість редагувати дані. При початковій ініціалізації БД до неї додаються деякі дані, при наступних запусках програми потрібно закоментувати або видалити у файлі Global.asax.cs рядок Database.SetInitializer(new LibraryDBInitializer()); 
