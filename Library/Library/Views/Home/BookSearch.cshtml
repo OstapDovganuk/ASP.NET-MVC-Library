@@ -1,17 +1,7 @@
 ﻿@model IEnumerable<Library.Models.Book>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Результат пошуку</title>
-    @{
-        Layout = "~/Views/Shared/_Layout.cshtml";
-    }
-</head>
-<body>
     <div id="searchresults">
-        <h3>@Html.ActionLink("Назад до бібліотеки", "Index")</h3>
+        <h5>@Html.ActionLink("Всі книги", "Index")</h5>
         @if(Model.FirstOrDefault() == null)
         {
             <h3>Не знайдено жодної книги!!!</h3>
@@ -42,5 +32,3 @@
             </table>
         }
     </div>
-</body>
-</html>
